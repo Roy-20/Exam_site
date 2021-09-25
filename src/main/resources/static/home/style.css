@@ -1,0 +1,21 @@
+#home{
+    display: flex;
+    justify-content: center;
+    margin-top: 18rem;
+}
+.teacher-login{
+    margin-left: 2rem;
+}
+button{
+    height: 2.75rem;
+    width: 9rem;
+    cursor: pointer;
+    background: #5d4242;
+    color: white;
+    font-family: cursive;
+    border-radius: 9px;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+button:hover{
+    background: #381010;
+}
