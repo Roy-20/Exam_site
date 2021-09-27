@@ -8,41 +8,29 @@
 </head>
 <body>
 <div class="container">
-    <form>
+    <form method="POST" th:action="@{/submitQuestion}" th:object="${questionForm}">
         <div class="row">
-            <div class="col-25">
-                <label for="fname">First Name</label>
-            </div>
             <div class="col-75">
-                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                <label for="content"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                <input type="text" name="content" id="content" th:field="*{content}" placeholder="Enter question" th:required="true"/>
             </div>
         </div>
         <div class="row">
-            <div class="col-25">
-                <label for="lname">Last Name</label>
-            </div>
             <div class="col-75">
-                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                <label for="answer"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                <input type="text" name="answer" id="answer" th:field="*{answer}" placeholder="answer" th:required="true"/>
             </div>
         </div>
         <div class="row">
-            <div class="col-25">
-                <label for="country">Country</label>
-            </div>
             <div class="col-75">
-                <select id="country" name="country">
-                    <option value="australia">Australia</option>
-                    <option value="canada">Canada</option>
-                    <option value="usa">USA</option>
-                </select>
+                <label for="marks"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                <input type="text" name="marks" id="marks" th:field="*{marks}" placeholder="Enter marks" th:required="true"/>
             </div>
         </div>
         <div class="row">
-            <div class="col-25">
-                <label for="subject">Subject</label>
-            </div>
             <div class="col-75">
-                <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                <label for="questionId"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                <input type="text" name="questionId" id="questionId" th:field="*{questionId}" placeholder="Enter questionId" th:required="true"/>
             </div>
         </div>
         <div class="row">

@@ -13,6 +13,15 @@ public class QuestionModel extends BaseEntity{
     private SubjectModel subject;
     private String questionID;
     private double marks;
+    private String answer;
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 
     public String getQuestionID() {
         return questionID;
