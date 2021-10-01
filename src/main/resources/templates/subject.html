@@ -1,0 +1,35 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subject</title>
+</head>
+<body>
+<div class="container">
+    <form method="POST" th:action="@{/createSubject}" th:object="${subjectForm}">
+        <div class="row">
+            <div class="col-75">
+                <label for="subjectName"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                <input type="text" name="subjectName" id="subjectName" th:field="*{subjectName}" placeholder="Enter subject name" th:required="true"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-75">
+                <label for="subjectCode"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                <input type="text" name="subjectCode" id="subjectCode" th:field="*{subjectCode}" placeholder="Subject Code" th:required="true"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-75">
+                <label for="subjectID"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                <input type="text" name="subjectID" id="subjectID" th:field="*{subjectID}" placeholder="Enter subjectID" th:required="true"/>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Create Exam">
+        </div>
+    </form>
+</div>
+</body>
+</html>
