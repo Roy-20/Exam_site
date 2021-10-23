@@ -32,20 +32,31 @@ public class ExamController {
         examRepository.save(exam);
         return "home";
     }
-    @GetMapping("/updateExam")
-    public String updateExam(@RequestParam String examId,@ModelAttribute Exam examForm){
-        final ExamModel exam=examRepository.findByexamId(examId);
-        exam.setExamId(examForm.getExamId());
-        exam.setExamName(examForm.getExamName());
-        exam.setMarks(exam.getMarks());
-        exam.setDescription(examForm.getDescription());
+    @GetMapping("/getUpdateExam")
+    public String getUpdateExam(Model model,@RequestParam String examId){
+        final ExamModel exam=examRepository.findByExamId(examId);
+        Exam examForm=new Exam();
+        examForm.setExamId(exam.getExamId());
+        examForm.setExamName(exam.getExamName());
+        examForm.setMarks(exam.getMarks());
+        examForm.setDescription(exam.getDescription());
+        examForm.setTotalQuestions(exam.getTotalQuestions());
+        model.addAttribute("form",examForm);
+        return "updateExam";
+    }
+    @PostMapping("/updateExam")
+    public String updateExam(@ModelAttribute Exam examForm,@RequestParam String examId){
+        final ExamModel exam=examRepository.findByExamId(examId);
         exam.setTotalQuestions(examForm.getTotalQuestions());
+        exam.setExamName(examForm.getExamName());
+        exam.setMarks(examForm.getMarks());
+        exam.setDescription(examForm.getDescription());
         examRepository.save(exam);
         return "home";
     }
     @DeleteMapping("/deleteExam")
     public String deleteExam(@ModelAttribute Exam examForm){
-        final ExamModel exam=examRepository.findByexamId(examForm.getExamId());
+        final ExamModel exam=examRepository.findByExamId(examForm.getExamId());
         this.examRepository.delete(exam);
         return "home";
     }
@@ -55,9 +66,9 @@ public class ExamController {
         return "allExams";
     }
     private void populateAllExamPage(Model model){
-        List<ExamModel> exam=examRepository.findAll();
+        List<ExamModel> exams=examRepository.findAll();
         List<Exam> examList=new ArrayList<>();
-        for (ExamModel ex:exam){
+        for (ExamModel ex:exams){
             Exam form=new Exam();
             form.setDescription(ex.getDescription());
             form.setExamId(ex.getExamId());

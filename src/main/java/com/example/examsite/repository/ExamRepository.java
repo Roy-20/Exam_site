@@ -4,5 +4,5 @@ import com.example.examsite.models.ExamModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ExamRepository extends JpaRepository<ExamModel,Integer> {
-    ExamModel findByexamId(String examId);
+    ExamModel findByExamId(String examId);
 }

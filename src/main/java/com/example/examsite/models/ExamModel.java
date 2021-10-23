@@ -1,15 +1,12 @@
 package com.example.examsite.models;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "exam")
 public class ExamModel extends BaseEntity{
-
+    @Column(unique = true)
     private String examId;
     private String examName;
     private String description;

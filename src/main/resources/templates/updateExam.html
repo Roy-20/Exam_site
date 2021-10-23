@@ -1,0 +1,47 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exam</title>
+</head>
+<body>
+<div class="container">
+  <form method="POST" th:action="@{/updateExam}" th:object="${form}">
+    <div class="row">
+      <div class="col-75">
+        <label for="examName"><i class="zmdi zmdi-account material-icons-name"></i></label>
+        <input type="text" name="examName" id="examName" th:field="*{examName}" placeholder="Enter exam name" th:required="true"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-75">
+        <label for="description"><i class="zmdi zmdi-account material-icons-name"></i></label>
+        <input type="text" name="description" id="description" th:field="*{description}" placeholder="description" th:required="true"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-75">
+        <label for="marks"><i class="zmdi zmdi-account material-icons-name"></i></label>
+        <input type="text" name="marks" id="marks" th:field="*{marks}" placeholder="Enter marks" th:required="true"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-75">
+        <label for="totalQuestions"><i class="zmdi zmdi-account material-icons-name"></i></label>
+        <input type="text" name="totalQuestions" id="totalQuestions" th:field="*{totalQuestions}" placeholder="Enter total questions" th:required="true"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-75">
+        <label for="examId"><i class="zmdi zmdi-account material-icons-name"></i></label>
+        <input type="text" name="examId" id="examId" th:field="*{examId}" placeholder="Enter exam Id" th:required="true"/>
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Update Exam">
+    </div>
+  </form>
+</div>
+</body>
+</html>
