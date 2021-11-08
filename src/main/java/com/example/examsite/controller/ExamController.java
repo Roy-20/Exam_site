@@ -32,7 +32,7 @@ public class ExamController {
         examRepository.save(exam);
         return "home";
     }
-    @GetMapping("/getUpdateExam")
+    @PostMapping(value = "/submitAction",params = "action=Update")
     public String getUpdateExam(Model model,@RequestParam String examId){
         final ExamModel exam=examRepository.findByExamId(examId);
         Exam examForm=new Exam();
@@ -54,9 +54,9 @@ public class ExamController {
         examRepository.save(exam);
         return "home";
     }
-    @DeleteMapping("/deleteExam")
-    public String deleteExam(@ModelAttribute Exam examForm){
-        final ExamModel exam=examRepository.findByExamId(examForm.getExamId());
+    @PostMapping(value = "/submitAction",params = "action=Remove")
+    public String deleteExam(@ModelAttribute Exam examForm,@RequestParam String examId){
+        final ExamModel exam=examRepository.findByExamId(examId);
         this.examRepository.delete(exam);
         return "home";
     }

@@ -62,22 +62,15 @@
     <tbody>
 
     <tr th:each="data:${examforms}">
-        <form th:method="GET" th:action ="@{/getUpdateExam}" th:object="${form1}">
+        <form method="POST" action ="#" th:object="${form1}">
             <td th:text="${data.examId}"></td>
             <td th:text="${data.examName}"></td>
             <td th:text="${data.description}"></td>
             <td th:text="${data.marks}"></td>
             <td th:text="${data.totalQuestions}"></td>
             <input type="hidden" name="examId" id="examId" th:value="${data.examId}"/>
-            <th:block th:if="${data.isApproved}">
-                <td><input type="submit" name="action" disabled="true"  class="form-submit" value="Update" th:formaction="@{/submitAction}"/>
-                    <input type="submit"  name="action" disabled="true"  class="form-submit" value="Remove" th:formaction="@{/submitAction}"/></td>
-            </th:block>
-            <!-- ELSE -->
-            <th:block th:if="${!data.isApproved}">
-                <td><input type="submit" name="action"  id="approve" class="form-submit" value="Update" th:formaction="@{/submitAction}"/>
-                    <input type="submit"  name="action"  id="reject" class="form-submit" value="Remove" th:formaction="@{/submitAction}"/></td>
-            </th:block>
+            <td><input type="submit" name="action"  id="update" class="form-submit" value="Update" th:formaction="@{/submitAction}"/>
+                <input type="submit"  name="action"  id="delete" class="form-submit" value="Remove" th:formaction="@{/submitAction}"/></td>
         </form>
     </tr>
     </tbody>
